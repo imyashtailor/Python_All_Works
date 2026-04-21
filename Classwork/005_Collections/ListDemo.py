@@ -67,7 +67,15 @@
 # k = [i for i in s if i.startswith('p')]
 # print(k)
 
-#sort method
+l = [10,20,40,80]
+k = [i for i in l if i%2!=0]
+print(k)
+
+my_list=[1,2,3]
+# list2 =[4,5,6]
+my_list[1]=5
+print(my_list)
+#sort method 
 
 s = ['Python','Android','Java','SQL']
 # s.sort()
