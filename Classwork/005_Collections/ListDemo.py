@@ -67,24 +67,24 @@
 # k = [i for i in s if i.startswith('p')]
 # print(k)
 
-l = [10,20,40,80]
-k = [i for i in l if i%2!=0]
-print(k)
+# l = [10,20,40,80]
+# k = [i for i in l if i%2!=0]
+# print(k)
 
-my_list=[1,2,3]
-# list2 =[4,5,6]
-my_list[1]=5
-print(my_list)
+# my_list=[1,2,3]
+# # list2 =[4,5,6]
+# my_list[1]=5
+# print(my_list)
 #sort method 
 
-s = ['Python','Android','Java','SQL']
+# s = ['Python','Android','Java','SQL']
 # s.sort()
 # s.sort(reverse=True)
 # s.reverse()
 # print(s)
 
-k = sorted(s)
-print(k)
+# k = sorted(s)
+# print(k)
 
 #copy the string
 # s = ['Python','Android','Java','SQL']
@@ -100,6 +100,10 @@ print(k)
 #index() method :- used to find the position (index) of a value inside a list
 # a = [10,20,30]
 # print(a.index(20))
+
+#count :- list ni under same value jetli var hoi tene count kare
+# a = [10,20,30,40,50,30,30]
+# print(a.count(30))
 
 
 
