@@ -61,12 +61,14 @@ while True:
             print("Not Item in this category")
         else:
             #show item in this category
-            for i, item in enumerate(grocery_list[selected]):
+            for i, item in enumerate(grocery_list[selected],start=1):
                 print(i,item)
 
                 message = int(input("Which number of item do you want to update in list = "))
 
-                if 0<= message < len(grocery_list[selected]):
+                index = message - 1
+
+                if 0<= index < len(grocery_list[selected]):
                     new_item = input("Enter New Item = ")
                     grocery_list[selected][message] = new_item
                     print("Item Updated Successfully!...")

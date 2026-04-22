@@ -102,8 +102,8 @@
 # print(a.index(20))
 
 #count :- list ni under same value jetli var hoi tene count kare
-# a = [10,20,30,40,50,30,30]
-# print("abc".count(a))
+a = [10,20,30,40,50,30,30]
+print(a.count(30))
 
 # print("abc".count(3))
 
