@@ -37,9 +37,9 @@ a = {10,20,30,40,True,0}
 b = {30,40,50,60,1,False}
 
 #Union Method - |  => data combine kare but same value return ni kare
-# a.update(b)
+# a.update(b)      => add all elements of B into A (no duplicates) --- Update()
 # print(a)
-# k = a.union(b)
+# k = a.union(b) => => everyone from both groups, without repeating names. --- Union()
 # print(k)
 
 
@@ -74,3 +74,8 @@ b = {10,20,30}
 print(a.issubset(b))
 print(a.issuperset(b))
 print(a.isdisjoint(b))
+
+#frozenset method
+f = frozenset({10,20,30,40})
+print(type(f))
+print(f)
