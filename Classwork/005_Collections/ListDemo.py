@@ -92,6 +92,7 @@
 # k = s.copy()
 # k = list(s)
 # k = s[:]
+# print(k)
 
 # k.append(5000)
 # print(k)
