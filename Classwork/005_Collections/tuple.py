@@ -41,3 +41,17 @@ print(type(l))
 #accessing the value from 50
 a = ((10,20),(30,40),(50,60))
 print(a[2][0])
+
+#concatenations (+)
+s1 = (10,40,60,80)
+s2 = (20,50,30,70)
+
+print(s1 + s2)
+
+#repetation(*)
+
+print(s1*2)
+
+#membership operator (in, not in)
+print(40 in s1)
+print(70 not in s1)

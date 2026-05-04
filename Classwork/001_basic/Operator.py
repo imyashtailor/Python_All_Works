@@ -5,7 +5,7 @@
 #3. Logical Operator => and, or, not
 #4. Comparision or Relational Operator => ==,!=,<,>,<=,>=
 #5. Identity Operator => is , isnot
-#6. Membership Operator => in, innot
+#6. Membership Operator => in, not in
 
 # Arithmatic Operator => +,-,*,/,%,//,**
 
@@ -20,7 +20,7 @@
 # print(a/b)
 # print(a%b)
 # print(50%2)
-# print(a//b) point pehla ni value consider kare
+# print(a//b) #point pehla ni value consider kare
 # print(7**2)
 
 #Assignment Operator => =,+=,-=,*=,/=

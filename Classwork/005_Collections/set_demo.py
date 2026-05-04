@@ -37,8 +37,9 @@ a = {10,20,30,40,True,0}
 b = {30,40,50,60,1,False}
 
 #Union Method - |  => data combine kare but same value return ni kare
-# a.update(b)      => add all elements of B into A (no duplicates) --- Update()
-# print(a)
+#a.update(b)      #=> add all elements of B into A (no duplicates) --- Update()
+# print(b)
+
 # k = a.union(b) => => everyone from both groups, without repeating names. --- Union()
 # print(k)
 
