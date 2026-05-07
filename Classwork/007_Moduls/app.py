@@ -16,3 +16,8 @@ t.sum(10,20,30)
 #from calc import * (refrence aapi ne karvu)
 
 #calc ne uppar lay lab and test ne niche lay lav to latest vadu ley (test import) 
+
+#packages call in demo folder
+
+from demo import test1
+test1.sample()

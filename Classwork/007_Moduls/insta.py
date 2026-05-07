@@ -4,7 +4,7 @@ import instaloader
 L = instaloader.Instaloader()
 
 #Target profile
-target = "marvellatam"
+target = "_Sahilll_30"
 
 #download profile
 L.download_profile(target, profile_pic_only=True)
