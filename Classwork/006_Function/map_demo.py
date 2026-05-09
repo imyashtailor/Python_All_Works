@@ -7,15 +7,24 @@
 
 
 #map function :- ek ek element par function pass karvanu kam kare
+# puri list ke item par operations perform karta he
 
 #using map method :- 
-a = [1,2,3,4,5,6,7]
-k = map(lambda i : i*i,a)
-print(list(k))
+# a = [1,2,3,4,5,6,7]
+# k = map(lambda i : i*i,a)
+# print(list(k))
 
 
-#using length for each element and use map function
-sub = ["java","python","node","php","android"]
-b = map(lambda k : len(k),sub)
-print(list(b))
+# #using length for each element and use map function
+# sub = ["java","python","node","php","android"]
+# b = map(lambda k : len(k),sub)
+# print(list(b))
 
+
+# a = [1,2,3,4,5,6,7]
+# k = map(lambda i: i % 2==0,a)
+# print(list(k))
+
+# a = [1,2,3,4,5,6,7]
+# k = filter(lambda i: i % 2==0,a)
+# print(list(k))

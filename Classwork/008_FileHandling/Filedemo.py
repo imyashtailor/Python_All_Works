@@ -53,8 +53,11 @@
 #             print(line, end="")
 
 
-# with open("home.txt",'w') as f:
-#     f.write("Hello Something")
+# with open("home.txt",'x') as f:
+#     f.write("Hello world")
+
+# with open("doc.txt",'x') as f:
+#     f.write("Hello Doc")   => x :- create a new file 
 
 # with open("home.txt",'r') as f:
 #     print(f.tell())    #kayi jagyaye par cursor che te batave

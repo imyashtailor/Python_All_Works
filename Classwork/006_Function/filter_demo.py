@@ -1,5 +1,7 @@
 #filter function :- it is a built in python tool used to extract element from an itreble (like tuple,list) that specify condition.
 
+#specific value pe operation karta he , jispe condition statisfy he ya true he to vahi value dega ohterwise nikal dega.
+
 # a = [1,2,3,4,5,6,7,8,9]
 # k = []
 
@@ -34,3 +36,8 @@ print(list(k))
 
 # k = filter(lambda ele : ele.startswith("p"),sub)
 # print(list(k))
+
+
+
+
+# print(hash("Hello")) # hash value deta he 

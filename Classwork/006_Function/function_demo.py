@@ -21,7 +21,8 @@ def sum(a,b):
 sum(30,50)
 
 #function with return type
-# a data-type of value a function 
+# a data-type of value a function
+# return is send back to the data to the variable 
 def cube(a):
     q = a*a*a
     return q

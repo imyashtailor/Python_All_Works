@@ -10,7 +10,7 @@
 # print("Hello")
 # print(next(itr))
 
-#generator :- custome iterator banavu hoi to potanu.
+#generator :- ek easy way he iterator banana ke liye or iterator object return karta he yeild keyword ke help se 
 #using the yeild keyword for making custome generator for iterator
 
 # def test():
