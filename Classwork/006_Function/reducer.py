@@ -1,4 +1,6 @@
 #reducer :- single value return (output) kare element mathi
+#aakhi list ma ek sathe operation perfrom kare 
+
 from functools import reduce
 
 #Manual rite

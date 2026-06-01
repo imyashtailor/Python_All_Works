@@ -1,4 +1,6 @@
 #iterator :- ek ek element ne kadhvu (or find) karva mate use thy.
+#defination :- an iterator is an object that allows traverse the all element through collections one by one that
+# is known as iterator
 
 # l = [10,20,30,40,50]
 

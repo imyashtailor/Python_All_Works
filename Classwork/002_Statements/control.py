@@ -1,4 +1,7 @@
 # control statement
+#break :- loop ne terminate kare immediately
+#continue :- skip current iteration of the loop
+#pass :- return the null value
 
 # break, continue and pass
 
