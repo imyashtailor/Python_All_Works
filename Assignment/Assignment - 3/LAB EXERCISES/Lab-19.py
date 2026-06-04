@@ -6,7 +6,7 @@ import sqlite3
 #conncetin to the sqlite3
 con = sqlite3.connect("reg.db")
 
-con.execute("create table register(name varchar(20), course varchar(30), sem varchar(20), form varchar(10), contact varchar(10), email varchar(40), address varchar(20))")
+# con.execute("create table register(name varchar(20), course varchar(30), sem varchar(20), form varchar(10), contact varchar(10), email varchar(40), address varchar(20))")
 
 #get the data
 def create():

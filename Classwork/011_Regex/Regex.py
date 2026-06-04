@@ -1,9 +1,14 @@
 #Match :- begining ma je string hoi te j match karse
 #search :- koi pn ne find kare
 #findall :- baddha matches ek sathe aape (content aape)
+#non-overlaping string ne find karva mate and ae string ne extract kare che and result list and tuple format ma aape che.
 #finditr :- one by one print kare (position aape)
 #sub :- replace kare string ne 
 #split :- seperate kare words or character
+
+
+#What is Regex(Regular Expression) :- it is highly specialized sequeced of character that forms a search pattern
+#used to find, match, validate or manipulate text that is known as regular expression
 import re
 
 st = "sun in evening at in most"

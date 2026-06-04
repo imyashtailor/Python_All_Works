@@ -23,7 +23,8 @@
 # l[:5] = [34,56,78,54,45,78,78,89]
 # print(l)
 
-#extend the list
+#extend the list , multiple data store karva mate
+#ek list ni ander biji list insert karva mate use thy.
 # a = [10,20,30]
 # b = [40,50,60]
 # a.extend(b)
