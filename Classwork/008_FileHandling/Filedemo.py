@@ -89,7 +89,7 @@
 #     print(data)
 
 
-#rb (binary file or images access karva mate)
+# rb (binary file or images access karva mate)
 # with open("abc.png","rb") as f:
 #     data = f.read()
 #     print(data)   

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Page</title>
+    <script>
+        const add = () => {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const res =  num1 + num2;
+            document.getElementById('res').textContent = res;
+        };
+
+        const sub = () => {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const res =  num1 - num2;
+            document.getElementById('res').textContent = res;
+        };
+
+        const mul = () => {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const res =  num1 * num2;
+            document.getElementById('res').textContent = res;
+        };
+
+        const division = () => { 
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const res =  num1 / num2;
+            document.getElementById('res').textContent = res;
+        };
+
+    </script>
+</head>
+<body>
+    <input type="text" id="num1" placeholder="Enter the first number">
+    <br><br>
+    <input type="text" id="num2" placeholder="Enter the second number">
+    <br><br>
+    <hr>
+    <input type="button" value="Addition" onmouseover="add()">
+    #onmousehover event
+    <input type="button" value="Subtraction" onclick="sub()">
+    <input type="button" value="Multiplication" onclick="mul()">
+    <input type="button" value="Division" onclick="division()">
+
+    <p id="res"></p>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Registation Form</legend>
+            <label for="uname">Username</label>
+            <input type="text" name="uname" id="uname" placeholder="Enter Username">
+
+            <br><br>
+
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter Email">
+
+            <br><br>
+
+            <label for="">Password</label>
+            <input type="text" name="password">
+
+            <br><br>
+
+            <!-- radiobutton -->
+            <label for="">Gender</label>
+            <input type="radio" name="gender" id="gender" value="male" checked>Male
+            <input type="radio" name="gender" id="gender" value="female">Female
+
+            <br><br>
+
+            <!-- checkboxes -->
+            <label for="">Languages:</label>
+            <input type="checkbox" name="Gujarati" value="guj">Gujarati
+            <input type="checkbox" name="Hindi" value="hindi">Hindi
+            <input type="checkbox" name="English" value="eng">English
+
+            <br><br>
+
+            <!-- Dropdownlist -->
+            <label for="">Country</label>
+            <select name="Country" id="">
+                <option value="">----Select Country----</option>
+                <option value="1">India</option>
+                <option value="2">USA</option>
+                <option value="3">Canada</option>
+                <option value="4">Australia</option>
+            </select>
+
+            <br><br>
+
+            <!-- Address -->
+            <label for="">Address</label>
+            <textarea name="adr" rows="5" cols="20"></textarea>
+
+            <br><br>
+
+            <!--Date-->
+            <label for="">Date</label>
+            <input type="date" name="date">
+
+            <br><br>
+
+            <!--color-->
+            <label for="">Color</label>
+            <input type="color" name="color">
+
+            <br><br>
+
+            <!--Age-->
+            <label for="">Age</label>
+            <input type="number" name="age">
+
+            <br><br>
+
+            <!--submit & reset-->
+            <input type="submit">
+            <input type="reset">
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -1,3 +1,7 @@
+# what is Access Modifires?
+# Access modifires are naming conventions used to suggest how class members should be accessed and modified.
+# Python does not enforce strict restrictions 
+
 #Naming Conventions
 #Name mangling 
 

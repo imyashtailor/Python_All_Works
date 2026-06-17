@@ -20,13 +20,13 @@
 
 
 #using filter-method
-# a = [1,2,3,4,5,6,7,8,9,10]
+a = [1,2,3,4,5,6,7,8,9,10]
 # def checkodd(a):
 #     if a % 2 !=0:
 #         return a
 
-# k = filter(lambda i : i%2!=0,a)
-# print(list(k))
+k = filter(lambda i : i%2!=0,a)
+print(list(k))
 
 #practical use 
 # sub = ["java","python","node","php","android"]

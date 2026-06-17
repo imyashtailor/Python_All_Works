@@ -1,3 +1,7 @@
+#What is map function in python ?
+# it is an built in tool that applies specified function to every item in an iterable(like list,tuple and dictionary)
+# return in an iterator and containing the result that is known as map function.
+
 # a = [1,2,3,4,5,6,7]
 # k = []
 
@@ -22,9 +26,11 @@
 
 
 a = [1,2,3,4,5,6,7]
+#OUTPUT :- return the output in boolean value 
 k = map(lambda i: i % 2==0,a)
 print(list(k))
 
 a = [1,2,3,4,5,6,7]
+#OUTPUT :- return the output in value or content
 k = filter(lambda i: i % 2==0,a)
 print(list(k))
