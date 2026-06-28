@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .product-card {
+            margin-top: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .badge-category {
+            font-size: 14px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card shadow product-card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Product List
+                    <a href="{%url 'index'%}" class="btn btn-success">Add Product</a>
+                </h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Sr.no</th>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th>Total Value (₹)</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for product in products%}
+                        {%if product.id == pro.id%}
+                        <form method="post" action="{%url 'create'%}" enctype="multipart/form-data">
+                            {%csrf_token%}
+
+                            <tr>
+                                <td><input type="hidden" name="id" value="{{product.id}}"></td>
+                                <td><input type="file" name="image" class="form-control" w-80></td>
+                                <td><input type="text" name="name" value="{{product.name}}" class="form-control" w-80></td>
+                                <td><input type="text" name="price" value="{{product.price}}" class="form-control" w-80></td>
+                                <td><input type="text" name="qty" value="{{product.qty}}" class="form-control" w-50></td>
+                                <td>
+                                    <select class="form-select form-control" id="category" name="cat" w-80>
+                                        <option selected>Select Category</option>
+                                        {%for cat in categories%}
+                                        <option value="{{cat.id}}" {%if cat.id == product.category.id%}selected{%endif%}>
+                                            {{cat.name}}</option>
+                                        {%endfor%}
+                                    </select>
+                                </td>
+                                <td>{{product.total}}</td>
+                                <td><button type="submit" class="btn btn-success">Update</button></td>
+                            </tr>
+                        </form>
+                        {%else%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{product.id}}</td>
+                            <td>
+                                <img src="media/{{product.image}}" alt="{{product.image}}" width="50px" height="50px">
+                            </td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.qty}}</td>
+                            <td>
+                                <span class="badge bg-info badge-category">
+                                    {{product.category.name}}
+                                </span>
+                            </td>
+                            <td>{{product.total}}</td>
+                            <td>
+                                <a href="{%url 'delete'%}?id={{product.id}}" class="btn btn-danger">Delete</a>
+                            </td>
+                            <td>
+                                <a href="{%url 'update'%}?id={{product.id}}" class="btn btn-primary">Update</a>
+                            </td>
+                        </tr>
+                        {%endif%}
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -9,5 +9,5 @@ class B(A):
         print("Test calling of B")
         super().test() #both messages are print => (both message ne print karva mate)
 
-b = B()
+b = B() 
 b.test()
