@@ -1,0 +1,78 @@
+Questions and answers for Session_1 
+
+1.) Explore the folder structure of your 'foodiehub_project' and write down the purpose of each key file: 
+manage.py, settings.py, urls.py, wsgi.py, and asgi.py.<br><br><em><strong>Hint:</strong> 
+Check the official Django documentation or use ChatGPT to help you describe each file's role.</em>
+=>
+
+below the explanation of structure :-
+
+1. manage.py :- 
+=> runs django command 
+Examples :-
+python manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser.
+
+Remember :- Project Manager
+
+
+2. settings.py
+=> Stores all project settings.
+includes :-
+Database
+Installed apps
+Time zone
+Templates
+static files
+security settings
+
+Remember :- Project Configuration
+
+3. urls.py 
+=> Connects URLs to Views.
+=> decides which page open when user visits a specific URL
+Example :-
+
+urlpatterns = [
+    path("admin/",admin.site.urls),
+]
+
+Remember :- URL Traffic Controller
+
+4. wsgi.py :-
+=> used when deploying the project on production server
+=> helps the web server communicate with django using the WSGI standard.
+
+Remember :- production server gatway(Synchronous)
+
+5. asgi.py
+=> used for asynchronous features such as :-
+1. websocket
+2. Live chat
+3. Notifications
+4. Real-time applications
+
+Remember :- Modern Async Gatway
+
+
+2.) Write a short comparison (3-4 lines) between Django and Flask, focusing on features and use cases for each. 
+Use an example app you use daily (like Instagram or Zomato) to explain which framework would be better and why.
+
+=> below the basic difference between django and Flask
+
+Django :-
+
+=> Django is full-featured python web framework that comes with built-in tools such as authentication, an admin
+panel and database management , making it ideal for large, complex applications.
+
+=> For large applications like Instagram, Django would be the better choice because it offers built in security,
+scalibility and many ready to use features needed for a social media platform.
+
+Flask :-
+
+=> Flask is a lightweight and flexible framework that provides only the essential, making it better for small projects.
+API, and applications where developers want more control.
+
+=> for a simple restaurent menu or small bussiness websites, flask would be a good choice because it is easy to setup 
+Customize.
