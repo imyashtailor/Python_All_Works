@@ -1,0 +1,100 @@
+<!-- database filter :- database mathi data ne filter karine aape
+python filter :- data ne filter karine list, tuple format ma data ne aape (specific item na data upar operation perfomr kare) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+</head>
+
+<script>
+    $(document).ready(function () {
+        // alert("Hello")
+        country()
+    })
+
+    const test = () => {
+        var q = $('#q').val()
+
+        $.get("test", { q }, function (rt) {
+            $("#data").html(rt)
+        })
+    }
+
+    const search = (q) => {
+        $.get("search", { q }, function (rt) {
+            $('#search_data').html(rt)
+        })
+    }
+
+    const country = () =>{
+        $.get("countries",{},function(rt){
+            var options = "<option value='0'>---select country---</option>"
+            rt.data.map(ele => {
+                options += `<option value="${ele.id}">${ele.name}</option>`
+            })
+            $("#country").html(options)
+        })
+    }
+
+    const state = (cid) =>{
+        $.get("states",{cid},function(rt){
+            var options = "<option value='0'>---select state---</option>"
+            rt.data.map(ele => {
+                options += `<option value="${ele.id}">${ele.name}</option>`
+            })
+            $("#state").html(options)
+        })
+    }
+
+    const city = (sid) =>{
+        $.get("cities",{sid},function(rt){
+            var options = "<option value='0'>---select city---</option>"
+            rt.data.map(ele => {
+                options += `<option value="${ele.id}">${ele.name}</option>`
+            })
+            $("#city").html(options)
+        })
+    }
+</script>
+
+<body>
+
+    <!-- simple AJAX query -->
+    <input type="text" name="" id="q">
+    <button onclick="test()">Submit</button>
+    <div id="data"></div>
+
+    <br>
+    <br>
+    <hr>
+
+    <!-- search - filter  -->
+    <input type="text" onkeyup="search(value)">
+    <div id="search_data"></div>
+
+    <br>
+    <br>
+    <hr>
+
+    <!-- dropdown menu with search filter -->
+    <select name="country" id="country" onchange="state(value)">
+        <option value="0">---select country---</option>
+    </select>
+
+      <select name="state" id="state" onchange="city(value)">
+        <option value="0">---select state---</option>
+    </select>
+
+      <select name="city" id="city">
+        <option value="0">---select city---</option>
+    </select>
+</body>
+
+</html>

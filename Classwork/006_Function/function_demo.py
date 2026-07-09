@@ -1,4 +1,10 @@
-#functions 
+#functions :- function is a block of organized code that perform particualr single task that is known as function
+
+# function types :-
+#1. function with No parameter and No return value
+#2. function with parameter and No return value
+#3. function with No paramter but return value
+#4. function with parameter and return value
 
 #create a function
 #function without paramater

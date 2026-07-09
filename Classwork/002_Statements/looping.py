@@ -1,3 +1,10 @@
+# what is looping ?
+# => looping in python is a programming feature that allows you to execute a specific block of code repeatedly.
+
+# types of loops :- 
+#1. entry control loop :- for, while => check the condition before the execution of loop
+# 2. exit control loop :- do...while => executes the body first, then check the condition, ensuring the loop run at least once.
+
 #Looping Statement 
 
 #for loop and while loop

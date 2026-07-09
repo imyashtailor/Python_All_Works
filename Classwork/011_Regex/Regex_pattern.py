@@ -33,7 +33,7 @@ import re
 
 password = input("Enter the Password = ")
 
-p = re.match(r"(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@!&*_])[A-Za-z\d@!&*_]{8,15}",password)
+p = re.match(r"(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@!&*_]){8,15}",password)
 print(p)
 if p:
     print("Match the password")

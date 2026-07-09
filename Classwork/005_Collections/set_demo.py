@@ -49,8 +49,8 @@ b = {30,40,50,60,1,False}
 # print(c)
 
 #Intersection Method - &  => je data common hoi te aave 
-# a.intersection_update(b)
-# print(a)
+a.intersection_update(b)
+print(a)
 # k = a.intersection(b)
 # print(a)
 
@@ -69,14 +69,14 @@ b = {30,40,50,60,1,False}
 # print(k)
 
 #issubest, issuperset and isdisjoint
-a = {100,200}
-b = {10,20,30}
+# a = {100,200}
+# b = {10,20,30}
 
-print(a.issubset(b))
-print(a.issuperset(b))
-print(a.isdisjoint(b))
+# print(a.issubset(b))
+# print(a.issuperset(b))
+# print(a.isdisjoint(b))
 
 #frozenset method
-f = frozenset({10,20,30,40})
-print(type(f))
-print(f)
+# f = frozenset({10,20,30,40})
+# print(type(f))
+# print(f)
