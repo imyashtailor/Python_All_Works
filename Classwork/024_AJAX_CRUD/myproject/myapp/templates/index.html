@@ -104,7 +104,7 @@
             let csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val();
 
             $.post('register', { csrfmiddlewaretoken, name, email, age }, function (rt) {
-                $('#msg').html(rt)
+                $('#msg').text(rt)
                 $('#name').val("")
                 $('#email').val("")
                 $('#age').val("")
@@ -114,8 +114,9 @@
 
         const deletestudent = (id) => {
             r = confirm("Are you sure, want to delete?")
-            if (r == true) {
+            if (r === true) {
                 $.get('delete', { id }, function (rt) {
+                    $('#msg').text(rt)
                     display()
                 })
             }
@@ -123,6 +124,7 @@
 
         const retrive = (id) =>{
             $.get('retrive',{id},function(rt){
+
                 $('#id').val(rt.student[0].id)
                 $('#name').val(rt.student[0].name)
                 $('#email').val(rt.student[0].email)
@@ -133,14 +135,16 @@
             })
         }
 
-        const update = (id) => {
+        const update = () => {
             const id = $("#id").val()
             const name = $("#name").val()
             const email = $("#email").val()
             const age = $("#age").val()
 
-            $.post('update', { csrfmiddlewaretoken, name, email, age }, function (rt) {
-                $('#msg').html(rt)
+            let csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val();
+
+            $.post('update', { csrfmiddlewaretoken, id, name, email, age }, function (rt) {
+                $('#msg').text(rt)
                 $('#name').val("")
                 $('#email').val("")
                 $('#age').val("")
@@ -156,18 +160,47 @@
                 var rows = ""
                 rt.data.map(ele => {
 
-                    rows += `<tr>
+                    rows += 
+                    `<tr>
                         <td>${ele.id}</td>
                         <td>${ele.name}</td>
                         <td>${ele.email}</td>
                         <td>${ele.age}</td>
                         <td>
                             <div class="action-buttons">
-                                <button class="btn btn-warning btn-sm" onclick="retrive(${ele.id})">
+                                <button class="btn btn-warning btn-sm" onclick='retrive(${ele.id})'>
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </button>
 
-                                <button class="btn btn-danger btn-sm" onclick="deletestudent(${ele.id})">
+                                <button class="btn btn-danger btn-sm" onclick='deletestudent(${ele.id})'>
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>`
+                })
+                $('#tdata').html(rows)
+            })
+        }
+
+        const search = (q) => {
+            $.get('search', {q}, function (rt) {
+                var rows = ""
+                rt.data.map(ele => {
+
+                    rows += 
+                    `<tr>
+                        <td>${ele.id}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.email}</td>
+                        <td>${ele.age}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </button>
+
+                                <button class="btn btn-danger btn-sm">
                                     <i class="bi bi-trash"></i> Delete
                                 </button>
                             </div>
@@ -219,12 +252,12 @@
                     </div>
 
                     <div class="col-lg-3 col-md-8">
-                        <button type="submit" class="btn btn-primary w-100" id="smbtn" onclick="register()">
+                        <button class="btn btn-primary w-100" id="smbtn" onclick="register()">
                             <i class="bi bi-person-plus-fill"></i>
                             Register Student
                         </button>
 
-                        <button type="submit" class="btn btn-primary w-100" id="upbtn" onclick="update()">
+                        <button class="btn btn-primary w-100" id="upbtn" onclick="update()">
                             <i class="bi bi-person-plus-fill"></i>
                             Update Student
                         </button>
@@ -237,13 +270,16 @@
         </div>
 
         <!-- Student Table -->
-        <div class="card">
+        <div class="card"> 
 
             <div class="card-header">
                 📋 Registered Students
             </div>
 
             <div class="card-body">
+
+                <input type="text" class="form-control" placeholder="Search..." onkeyup="search(value)">
+                <br>
 
                 <div class="table-responsive">
 

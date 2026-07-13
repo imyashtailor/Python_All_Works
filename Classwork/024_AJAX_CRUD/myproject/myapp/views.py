@@ -27,7 +27,7 @@ def delete_student(request):
     student.delete()
     return HttpResponse("Student Data Deleted...")
 
-def retrive_student(request):
+def retrive(request):
     id = request.GET['id']
     student = Student.objects.filter(id=id)
     return JsonResponse({'student':list(student.values())})
@@ -46,4 +46,9 @@ def update_student(request):
         student.age = age
         student.save()
         return HttpResponse("Update Data Successfully!...")
+
+def search(request):
+    q = request.GET['q']
+    students = Student.objects.filter(name__startswith=q) or Student.objects.filter(email__startswith=q) or Student.objects.filter(age__startswith=q)
+    return JsonResponse({'data':list(students.values())})
 
