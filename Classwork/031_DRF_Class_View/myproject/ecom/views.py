@@ -59,3 +59,29 @@ class ProductAPI(APIView):
             return Response({'data':ser.data},status=status.HTTP_201_CREATED)
         else:
             return Response({'errors':ser.errors},status=status.HTTP_400_BAD_REQUEST)
+
+class ProductAPIById(APIView):
+    def get(self,request,id):
+        product = Product.objects.get(id=id)
+        ser = ProductSerializer(product)
+        return Response({'data':ser.data},status=status.HTTP_200_OK)
+
+    def put(self,request,id):
+        product = Product.objects.get(id=id)
+        ser = ProductSerializer(product,request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response({'data':ser.data},status=status.HTTP_201_CREATED)
+        else:
+            return Response({'errors':ser.errors},status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self,request,id):
+        product = Product.objects.get(id=id)
+        product.delete()
+        return Response({'message':'Product Deleted Successfully!...'},status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def product_category(request,id):
+    product = Product.objects.filter(category_id=id)
+    ser = ProductSerializer(product,many=True)
+    return Response({'data':ser.data})

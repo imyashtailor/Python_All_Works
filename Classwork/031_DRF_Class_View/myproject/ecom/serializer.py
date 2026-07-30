@@ -10,10 +10,14 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
-        depth=1
 
 
     def validate(self,attrs):
         if attrs['qty']<1:
             raise serializers.ValidationError({'qty':'Qty must not be 0'})
         return attrs
+
+    def to_representation(self,instance):
+        resp = super().to_representation(instance)
+        resp['category'] = CategorySerializer(instance.category).data
+        return resp
