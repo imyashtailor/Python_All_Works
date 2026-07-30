@@ -98,6 +98,7 @@
                         <th>SR.NO</th>
                         <th>ID</th>
                         <th>Product Name</th>
+                        <th>Image</th>
                         <th>Price (₹)</th>
                         <th>Quantity</th>
                         <th>Total(₹)</th>
@@ -111,12 +112,13 @@
                     <!-- Sample Data -->
                     {%for product in products%}
                     {%if product.id == pro.id%}
-                    <form method="post" action="{%url 'create'%}">
+                    <form method="post" action="{%url 'create'%}" enctype="multipart/form-data">
                         {%csrf_token%}
 
                         <tr>
                             <td><input type="hidden" name="id" value="{{product.id}}"></td>
                             <td><input type="text" name="name" value="{{product.name}}" class="form-control" w-80></td>
+                            <td><input type="file" name="image" class="form-control" w-80></td>
                             <td><input type="text" name="price" value="{{product.price}}" class="form-control" w-80>
                             </td>
                             <td><input type="text" name="qty" value="{{product.qty}}" class="form-control" w-80></td>
@@ -142,6 +144,7 @@
                         <td>{{forloop.counter}}</td>
                         <td>{{product.id}}</td>
                         <td>{{product.name}}</td>
+                        <td><img src="media/{{product.image}}" alt="{{product.image}}" width="50px" height="50px"></td>
                         <td>{{product.price}}</td>
                         <td>{{product.qty}}</td>
                         <td>{{product.total}}</td>
