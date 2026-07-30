@@ -7,37 +7,37 @@
 
 <body>
 
-<h2>All Profiles</h2>
+    <h2>All Profiles</h2>
 
-<ul>
+    <ul>
 
-{% for profile in profiles %}
+        {% for profile in profiles %}
 
-<li>
+        <li>
 
-Username : {{ profile.username }}
+            Username : {{ profile.username }}
 
-<br>
+            <br>
 
-Age : {{ profile.age }}
+            Age : {{ profile.age }}
 
-<br>
+            <br>
 
-Public : {{ profile.is_public }}
+            Public : {{ profile.is_public }}
 
-</li>
+        </li>
 
-<br>
+        <br>
 
-{% empty %}
+        {% empty %}
 
-<li>No Profiles Found</li>
+        <li>No Profiles Found</li>
 
-{% endfor %}
+        {% endfor %}
 
-</ul>
+    </ul>
 
-<a href="/">Add New Profile</a>
+    <a href="/">Add New Profile</a>
 
 </body>
 
