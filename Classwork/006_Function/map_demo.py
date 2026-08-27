@@ -10,7 +10,7 @@
 #     k.append(i)
 
 
-#map function :- ek ek element par function pass karvanu kam kare
+#map function :- ek ek element par function apply karvanu kam kare
 # puri list ke item par operations perform karta he
 
 #using map method :- 

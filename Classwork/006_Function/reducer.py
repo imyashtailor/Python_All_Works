@@ -1,6 +1,9 @@
 #reducer :- single value return (output) kare element mathi
 #aakhi list ma ek sathe operation perfrom kare 
 
+# What is Reduce() function ? => it is an higher order tool that applies a function cummulatively to the items of an
+# iterable to return a single final value
+
 from functools import reduce
 
 #Manual rite

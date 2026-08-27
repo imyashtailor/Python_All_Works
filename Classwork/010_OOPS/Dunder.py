@@ -1,4 +1,6 @@
 #Dunder method :- object na representation mate use thy 
+# what is Dunder Method ? => it is a special predefiend method that charactrized by two double underscore at the 
+# begininig and at the end , it is also known as a magic method that is known ad Dunder method.
 
 #1. __str__ method :- define a human redable string for print() or str()
 class Demo:

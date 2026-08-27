@@ -1,4 +1,4 @@
-#filter function :- it is a built in python tool used to extract element from an itreble (like tuple,list) that specify condition.
+#filter function :- it is a built in python tool used to filter element from an itreble (like tuple,list) that specify condition.
 
 #specific value pe operation karta he , jispe condition statisfy he ya true he to vahi value dega ohterwise nikal dega.
 

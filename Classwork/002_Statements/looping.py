@@ -5,6 +5,10 @@
 #1. entry control loop :- for, while => check the condition before the execution of loop
 # 2. exit control loop :- do...while => executes the body first, then check the condition, ensuring the loop run at least once.
 
+# what is a Varaible ? :- it is a symbolic name that acts as a refrence or pointer to an object stored in a computer's
+# memory that is known as variable
+
+
 #Looping Statement 
 
 #for loop and while loop

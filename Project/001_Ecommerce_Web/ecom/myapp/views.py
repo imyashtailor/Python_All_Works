@@ -3,6 +3,12 @@ from rest_framework import viewsets
 from myapp.serializers import *
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,AllowAny
+from rest_framework.decorators import api_view,APIView,permission_classes
+from rest_framework.response import Response
+from rest_framework import status
+import razorpay
+import random
+
 
 # Create your views here.
 
@@ -21,3 +27,85 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    def get_permissions(self):
+            if self.action in ['list', 'retrieve']:
+                permission_classes = [AllowAny]
+            else:
+                permission_classes = [IsAdminUser]
+    
+            return [permission() for permission in permission_classes]
+
+class AddressViewSet(viewsets.ModelViewSet):
+    serializer_class = AddressSerializer
+    permission_classes = [IsAuthenticated]
+
+    # return only address beloginig to logged in user
+    def get_queryset(self):
+        return Address.objects.filter(user=self.request.user).order_by("-is_default","-created_at")
+
+    # Automatically assign logged in user , user does not need to send User Id.
+    def perform_create(self, serializer):
+        serializer.save(user = self.request.user)
+
+class CartViewSet(APIView):
+    def get_cart(self,user):
+        cart, created = Cart.objects.get_or_create(user=user)
+        return cart
+
+    def get(self,request):
+        cart = self.get_cart(request.user)
+        serializer = CartSerializer(cart)
+        return Response({'cart':serializer.data},status=status.HTTP_200_OK)
+
+    def post(self,request):
+        data = request.data
+        product = request.data.get('product')
+        qty = request.data.get('qty')
+
+        try:
+            product = Product.objects.get(id=product,is_active=True)
+        except Product.DoesNotExist:
+            return Response({'error':'Product Not Found'},status=status.HTTP_404_NOT_FOUND)
+
+        cart = self.get_cart(request.user)
+        cart_item,created = CartItem.objects.get_or_create(cart=cart,product=product,defaults={"quantity":qty})
+
+        if not created:
+            new_quantity = (cart_item.quantity + qty)
+            cart_item.quantity = new_quantity
+            cart_item.save()
+        serializer = CartSerializer(cart)
+        return Response({'message':'Product Added to Cart Successfully!...',"cart":serializer.data},status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def payment(request):
+
+    amount = request.data['amount']
+    id = "rzp_test_TRxT93641yf649"
+    secret = "g64MNcN8Tnen0WJhyOEGwOlH"
+
+    client = razorpay.Client(auth=(id,secret))
+
+    data = { "amount": amount*100, "currency": "INR", "receipt": "order_rcptid_11" }
+    payment = client.order.create(data=data) # Amount is in currency subunits.
+    print(payment)
+    return Response(payment)
+
+@api_view(['POST'])
+@permission_classes(IsAuthenticated)
+def confirmorder(request):
+    data = request.data
+    transaction_id = data.get('transaction_id')
+    payment_method = data.get('payment_method')
+
+    user = request.user
+    address = Address.objects.get(user=user,is_default=True)
+    carts = Cart.objects.get(user=user)
+    order_number = f"ORDER_{random.randint(0000,9999)}"
+    total_amount = carts.total_amount
