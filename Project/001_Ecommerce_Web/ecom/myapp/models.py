@@ -367,10 +367,7 @@ class Order(models.Model):
         related_name="orders"
     )
 
-    subtotal = models.DecimalField(
-        max_digits=12,
-        decimal_places=2
-    )
+    
 
     discount = models.DecimalField(
         max_digits=12,
@@ -449,6 +446,11 @@ class OrderItem(models.Model):
         decimal_places=2
     )
 
+    subtotal = models.DecimalField(
+            max_digits=12,
+            decimal_places=2
+    )
+
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
@@ -492,7 +494,7 @@ class Payment(models.Model):
     status = models.CharField(
         max_length=20,
         choices=Status.choices,
-        default=Status.PENDING
+        default=Status.SUCCESS
     )
 
     payment_gateway = models.CharField(

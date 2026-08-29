@@ -423,6 +423,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
             "product_name",
             "price",
             "quantity",
+            "subtotal",
             "total_price",
         ]
 
@@ -431,6 +432,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
             "product_name",
             "price",
             "total_price",
+            "subtotal"
         ]
 
 
@@ -495,7 +497,6 @@ class OrderSerializer(serializers.ModelSerializer):
             "address_details",
             "coupon",
             "coupon_code",
-            "subtotal",
             "discount",
             "shipping_charge",
             "total_amount",
@@ -512,7 +513,6 @@ class OrderSerializer(serializers.ModelSerializer):
         read_only_fields = [
             "id",
             "order_number",
-            "subtotal",
             "discount",
             "total_amount",
             "status",
